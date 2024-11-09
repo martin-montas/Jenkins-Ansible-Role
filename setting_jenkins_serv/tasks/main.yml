@@ -1,0 +1,6 @@
+---
+- name: Run first tasks
+  include_tasks: ./set-firewall.yml 
+
+- name: Run later tasks
+  include_tasks: ./set-jenkins.yml
