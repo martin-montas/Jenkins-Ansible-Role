@@ -1,6 +1,6 @@
 ---
 - name: Apply common role to webservers
   hosts: webservers
-  become: yes
+  become: true
   roles:
     - setting-web-server

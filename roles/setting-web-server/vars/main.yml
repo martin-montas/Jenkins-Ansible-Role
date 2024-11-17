@@ -1,13 +1,12 @@
 ---
-listOfAllowUsers: 
-  -  "john" 
+listOfAllowUsers:
+  - "john"
 
-listOfNewUsers: 
-  -  "www-data" 
+listOfNewUsers:
+  - "www-data"
 
 serverName: "test-server"
-hostIP: "127.0.0.1"
+hostIP: "10.0.0.91"
 
 # the host ip to match to the server and the name
-hostRegex: '^127\.0\.0\.0\s+.*$'
-
+hostRegex: "^127\\.0\\.0\\.0\\s+.*$"

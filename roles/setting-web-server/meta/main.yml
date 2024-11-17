@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: martin-montas
   description: Web Server Security Configuration
@@ -5,5 +6,3 @@ galaxy_info:
   license: license (GPL-3.0-only)
 
   min_ansible_version: 2.1
-
-
