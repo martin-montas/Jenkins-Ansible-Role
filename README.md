@@ -1,17 +1,19 @@
 # Web Server Security Configuration
 
+## How get started:
 
+### 1. How to install:
+```bash
+git clone https://github.com/martin-montas/Web-Server-Sec-Ansible.git
+```
 
-# How to start:
-
-#### After changing the values at vars/ directory run the following command
+### 2. After changing the values at vars/ directory run the following command
 ```bash
 ansible-playbook playbook.yml -i inventory.ini
 ```
-and you will be done.
 
-## For future development
-- [ ] Add support for Apache, Nginx, PHP, etc. 
+### For future development:
+- [ ] Add support for Apache, nginx, PHP, etc. 
 - [ ] Create proper users for the web server
 - [ ] Add support for SSH, hardening.
 - [ ] Add support for Mod Security
