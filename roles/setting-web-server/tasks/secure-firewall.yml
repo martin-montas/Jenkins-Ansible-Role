@@ -1,0 +1,35 @@
+---
+- name: Set Firewall (UFW)
+  become: true
+  hosts: all
+  tasks: 
+    - name: Ensure ufw is installed
+      apt:
+        name: ufw
+        state: present
+
+    - name: Ensure ufw is enabled
+      ufw:
+        state: enabled
+
+    - name: Ensure ufw is running
+      systemd:
+        name: ufw
+        state: started
+        enabled: yes
+      register: ufw_check
+
+    - name: Allow HTTP traffic on port 80
+      community.general.ufw:
+        rule: deny
+        port: '80'
+
+    - name: Allow SSH traffic on port 22
+      community.general.ufw:
+        rule: allow
+        port: '22'
+
+    - name: Deny Telnet traffic on port 23
+      community.general.ufw:
+        rule: deny
+        port: '23'

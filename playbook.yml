@@ -1,0 +1,6 @@
+---
+- name: Apply common role to webservers
+  hosts: webservers
+  become: yes
+  roles:
+    - common
