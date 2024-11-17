@@ -1,5 +1,21 @@
 # Web Server Security Configuration
 
+## Introduction:
+This Ansible role is build for security and setup of web servers automation.
+
+## Prerequisites:
+- Ansible 2.1 or higher
+- Python 3.7 or higher
+- Git
+
+
+## Dependencies:
+- [community.general.ufw](https://galaxy.ansible.com/ansible/general-ufw)
+- [community.general.apt](https://galaxy.ansible.com/ansible/general-apt)
+- [community.general.user](https://galaxy.ansible.com/ansible/general-user)
+- [community.general.group](https://galaxy.ansible.com/ansible/general-group)
+
+
 ## How get started:
 
 ### 1. How to install:
