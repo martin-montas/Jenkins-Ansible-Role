@@ -1,4 +1,4 @@
-# Jenkins-Ansible-Role
+# Web Server Security Configuration
 
 ## For future development
 - [ ] Add support for Apache, Nginx, PHP, etc. 

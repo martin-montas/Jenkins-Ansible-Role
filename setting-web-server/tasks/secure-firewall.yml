@@ -1,5 +1,5 @@
 ---
-- name: Set Firewall 
+- name: Set Firewall (UFW)
   become: true
   hosts: all
   tasks: 
@@ -21,7 +21,7 @@
 
     - name: Allow HTTP traffic on port 80
       community.general.ufw:
-        rule: allow
+        rule: deny
         port: '80'
 
     - name: Allow SSH traffic on port 22

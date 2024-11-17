@@ -1,2 +1,6 @@
 ---
-# vars file for setting_jenkins_serv
+listOfAllowUsers: 
+  -  "william" 
+
+listOfNewUsers: 
+  -  "www-data" 

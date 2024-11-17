@@ -1,4 +1,12 @@
 ---
-- name: Run first tasks
-  include_tasks: ./set-firewall.yml 
-
+#                     Order of Tasks 
+#
+#               1. Secure firewall (UFW)
+#               2. Secure SSH
+#
+#
+#
+#
+- name: Run UFW
+  include_tasks: ./Secure-firewall.yml 
+  include_tasks: ./secure-ssh.yml
