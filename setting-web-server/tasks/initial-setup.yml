@@ -1,0 +1,5 @@
+---
+- name: Initial Setup
+  become: true
+  hosts: all
+  tasks: 

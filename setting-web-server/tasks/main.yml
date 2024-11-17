@@ -8,5 +8,5 @@
 #
 #
 - name: Run UFW
-  include_tasks: ./Secure-firewall.yml 
   include_tasks: ./secure-ssh.yml
+  include_tasks: ./secure-firewall.yml 

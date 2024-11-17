@@ -2,6 +2,7 @@
 
 ## For future development
 - [ ] Add support for Apache, Nginx, PHP, etc. 
+- [ ] Create proper users for the web server
 - [ ] Add support for SSH, hardening.
 - [ ] Add support for Mod Security
 - [ ] Add support for Fail2Ban
