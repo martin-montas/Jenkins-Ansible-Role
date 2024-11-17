@@ -1,8 +1,0 @@
----
-listOfAllowUsers: 
-  -  "william" 
-
-listOfNewUsers: 
-  -  "www-data" 
-
-serverName: "test-server"

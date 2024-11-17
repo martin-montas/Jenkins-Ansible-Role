@@ -1,3 +1,0 @@
-[PROD_SERV]
- 10.0.0.91 ansible_user=john ansible_ssh_pass=rodent45 ansible_become_password=rodent45
-

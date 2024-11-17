@@ -1,9 +1,0 @@
----
-- name: Initial Setup
-  become: true
-  hosts: all
-  tasks: 
-    - name : Change the HostName of the Server 
-      community.builtin.command:
-        cmd: "hostnamectl set-hostname {{ serverName }}"
-
