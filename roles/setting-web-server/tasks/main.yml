@@ -1,12 +1,12 @@
 ---
 #                     Order of Tasks 
 #
-#               1. Secure firewall (UFW)
-#               2. Secure SSH
+#               1. Inint Setup
+#               2. Secure firewall (UFW)
+#               3. Secure SSH
 #
-#
-#
-#
-- name: Run UFW
+
+- name: runs the group of playbooks on the hosts  
+  include_tasks: ./initial-setup.yml
   include_tasks: ./secure-ssh.yml
   include_tasks: ./secure-firewall.yml 

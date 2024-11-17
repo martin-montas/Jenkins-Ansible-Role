@@ -3,4 +3,4 @@
   hosts: webservers
   become: yes
   roles:
-    - common
+    - setting-web-server

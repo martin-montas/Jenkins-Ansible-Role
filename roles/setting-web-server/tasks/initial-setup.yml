@@ -1,9 +1,33 @@
 ---
-- name: Initial Setup
+- name: Init Setup
   become: true
   hosts: all
   tasks: 
-    - name : Change the HostName of the Server 
-      community.builtin.command:
-        cmd: "hostnamectl set-hostname {{ serverName }}"
+    - name: Set the current hostname
+      hostname:
+        name: '{{ serverName }}'
 
+    - name: Ensure /etc/hostname is updated
+      copy:
+        content: "{{ serverName }}\n"  # Replace with the desired hostname
+        dest: /etc/hostname
+
+    - name: Update /etc/hosts with the new hostname
+      lineinfile:
+        path: /etc/hosts
+        regexp: '{{ hostRegex }}'
+        line: '{{ hostIP }} {{ serverName }}'  # Replace with the desired hostname
+        state: present
+
+    - name: Create www-data group
+      group:
+        name: www-data
+        state: present
+
+    - name: Create www-data user
+      user:
+        name: www-data
+        state: present
+        shell: /usr/sbin/nologin
+        comment: "Web server user"
+        groups: www-data  
