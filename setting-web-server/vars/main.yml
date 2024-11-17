@@ -4,3 +4,5 @@ listOfAllowUsers:
 
 listOfNewUsers: 
   -  "www-data" 
+
+serverName: "test-server"
