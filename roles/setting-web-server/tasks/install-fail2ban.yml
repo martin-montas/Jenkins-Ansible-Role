@@ -1,0 +1,23 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Fail2Ban
+  apt:
+    name: fail2ban
+    state: present
+    #### TODO:(work here next)
+
+
+
+
+
+
+
+
+
+
+
+
+

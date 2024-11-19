@@ -1,5 +1,6 @@
 ---
-- name: Configure Web Server
-  include_tasks: tasks/initial-setup.yml
-  include_tasks: tasks/secure-firewall.yml
-  include_tasks: tasks/secure-ssh.yml
+- name: Configure Secure Web Server
+  include_tasks: ./initial-setup.yml
+  include_tasks: ./secure-firewall.yml
+  include_tasks: ./secure-ssh.yml
+  include_tasks: ./install-fail2ban.yml

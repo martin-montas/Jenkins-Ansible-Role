@@ -1,0 +1,12 @@
+---
+- name: Saved fail2ban config
+  copy:
+    src: /etc/fail2ban/jail.conf
+    dest: /etc/fail2ban/jail.local
+
+- name: Configure the ssh jail
+  lineinfile:
+    path: /etc/fail2ban/jail.conf
+    regexp: "^ssh"
+    line: "ssh port=22"
+    state: present

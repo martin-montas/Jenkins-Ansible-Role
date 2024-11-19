@@ -31,7 +31,7 @@ ansible-playbook playbook.yml -i inventory.ini
 ### For future development:
 - [ ] Add support for Apache, nginx, PHP, etc. 
 - [ ] Create proper users for the web server
-- [ ] Add support for SSH, hardening.
+- [x] Add support for SSH, hardening.
 - [ ] Add support for Mod Security
 - [ ] Add support for Fail2Ban
 - [ ] Add support for proper permissions on the web server file system
