@@ -1,2 +1,15 @@
 ---
-# tasks file for ssh
+- name: Disable Root Login for SSH
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+
+- name: List of AllowUsers
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^AllowUsers"
+    line: 'AllowUsers {{ listOfAllowUsers | join(" ") }}'
+    state: present
+  with_items: "{{ listOfAllowUsers }}"
