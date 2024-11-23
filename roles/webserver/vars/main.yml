@@ -1,2 +1,4 @@
 ---
-# vars file for webserver
+web_server_name:  apache2
+web_server_port:  80
+

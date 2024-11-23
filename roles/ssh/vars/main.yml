@@ -1,2 +1,6 @@
----
-# vars file for ssh
+--- 
+listOfAllowUsers:
+  - "john"
+
+listOfNewUsers:
+  - "www-data"

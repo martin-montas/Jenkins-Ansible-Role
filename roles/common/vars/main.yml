@@ -1,9 +1,4 @@
 ---
-listOfAllowUsers:
-  - "john"
-
-listOfNewUsers:
-  - "www-data"
 
 serverName: "test-server"
 hostIP: "10.0.0.91"

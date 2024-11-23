@@ -5,7 +5,12 @@
   roles:
   ######################################
   #
-  #         SET EACH ROLE HERE:
+  #      SET EACH ROLE HERE:
   #
   ######################################
-   - common
+   - app      
+   # - common   
+   # - database 
+   # - firewall 
+   # - ssh      
+   # - webserver
