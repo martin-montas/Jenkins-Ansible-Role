@@ -3,4 +3,9 @@
   hosts: webservers
   become: true
   roles:
-    - setting-web-server
+  ######################################
+  #
+  #         SET EACH ROLE HERE:
+  #
+  ######################################
+   - common

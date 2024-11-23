@@ -21,19 +21,6 @@
 - name: Gather service facts
   service_facts:
 
-- name: Check if Fail2Ban is running and enabled
-  debug:
-    msg: >
-      Fail2Ban is
-      {% if 'fail2ban.service' in ansible_facts.services and
-      ansible_facts.services['fail2ban.service'].state == 'running' 
-      %}
-      running and enabled
-      {% else %}
-      not running or not enabled
-      {% endif %}
-  when: "'fail2ban.service' in ansible_facts.services"
-
 - name: Fail if Fail2Ban is not running or enabled
   fail:
     msg: "Fail2Ban is not running or not enabled!"
