@@ -29,12 +29,13 @@ ansible-playbook playbook.yml -i inventory.ini
 ```
 
 ### For future development:
-- [ ] Add support for Apache, nginx, PHP, etc. 
-- [ ] Create proper users for the web server
+- [ ] Add support for Apache, Nginx, PHP, etc.
+- [x] Create proper users for the web server
 - [x] Add support for SSH, hardening.
 - [ ] Add support for Mod Security
-- [ ] Add support for Fail2Ban
+- [x] Install Fail2Ban
+- [ ] Configure Fail2Ban
 - [ ] Add support for proper permissions on the web server file system
 - [ ] Add support for Backup and Restore
-- [ ] Ensure that directory browsing is disabled to prevent attackers 
+- [ ] Ensure that directory browsing is disabled to prevent attackers
       from seeing a list of files on your web server.

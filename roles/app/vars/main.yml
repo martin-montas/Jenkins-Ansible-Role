@@ -1,2 +1,2 @@
 ---
-# vars file for app
+fail2ban_ssh_port: 22

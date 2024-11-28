@@ -1,13 +1,30 @@
 ---
 - name: Saved fail2ban config
   copy:
-    src: /etc/fail2ban/jail.conf
+    src:  /etc/fail2ban/jail.conf
     dest: /etc/fail2ban/jail.local
 
-- name: Configure the ssh jail
-  lineinfile:
-    path: /etc/fail2ban/jail.conf
-    regexp: "^ssh"
-    line: "ssh port=22"
-    state: present
-#### TODO: add extra here based on file
+- name: Read the config file
+  slurp:
+    src: /etc/fail2ban/jail.local
+  register: file_content
+
+- name: Decode file content
+  set_fact:
+    decoded_content: "{{ file_content.content | b64decode }}"
+
+- name: Find the [ssh] section and get lines after it
+  set_fact:
+    ssh_section_lines: "{{ decoded_content | regex_search('\\[ssh\\](.*?)\\[', multiline=True) | default(decoded_content | regex_search('\\[ssh\\](.*)', multiline=True)) }}"
+
+- name: Show the lines from [ssh] section
+  debug:
+    msg: "{{ ssh_section_lines }}"
+
+- name: Find the 'Port' setting within [ssh] section
+  set_fact:
+    ssh_port: "{{ ssh_section_lines | regex_search('^Port=(\\d+)', '\\1') | default('Not Found') }}"
+
+- name: Show the found port
+  debug:
+    msg: "The SSH Port is {{ ssh_port }}"
