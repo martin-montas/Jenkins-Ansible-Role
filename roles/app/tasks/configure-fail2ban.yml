@@ -1,8 +1,6 @@
 ---
 - name: Saved fail2ban config
-  copy:
-    src:  /etc/fail2ban/jail.conf
-    dest: /etc/fail2ban/jail.local
+  shell: cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 - name: Read the config file
   slurp:
@@ -28,3 +26,10 @@
 - name: Show the found port
   debug:
     msg: "The SSH Port is {{ ssh_port }}"
+
+- name: Change the port
+  lineinfile:
+    path: /etc/fail2ban/jail.local
+    regexp: '^Port=(\\d+)'
+    line: 'Port={{ fail2ban_ssh_port }}'
+  when: (ssh_port !=  fail2ban_ssh_port) or (ssh_port == 'Not Found')
