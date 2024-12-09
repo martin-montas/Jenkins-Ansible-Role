@@ -34,7 +34,7 @@ ansible-playbook playbook.yml -i inventory.ini
 - [x] Add support for SSH, hardening.
 - [ ] Add support for Mod Security
 - [x] Install Fail2Ban
-- [ ] Configure Fail2Ban
+- [x] Configure Fail2Ban 
 - [ ] Add support for proper permissions on the web server file system
 - [ ] Add support for Backup and Restore
 - [ ] Ensure that directory browsing is disabled to prevent attackers

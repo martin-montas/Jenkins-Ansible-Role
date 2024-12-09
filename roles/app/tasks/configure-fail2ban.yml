@@ -7,29 +7,20 @@
     src: /etc/fail2ban/jail.local
   register: file_content
 
-- name: Decode file content
-  set_fact:
-    decoded_content: "{{ file_content.content | b64decode }}"
 
-- name: Find the [ssh] section and get lines after it
-  set_fact:
-    ssh_section_lines: "{{ decoded_content | regex_search('\\[ssh\\](.*?)\\[', multiline=True) | default(decoded_content | regex_search('\\[ssh\\](.*)', multiline=True)) }}"
-
-- name: Show the lines from [ssh] section
-  debug:
-    msg: "{{ ssh_section_lines }}"
-
-- name: Find the 'Port' setting within [ssh] section
-  set_fact:
-    ssh_port: "{{ ssh_section_lines | regex_search('^Port=(\\d+)', '\\1') | default('Not Found') }}"
-
-- name: Show the found port
-  debug:
-    msg: "The SSH Port is {{ ssh_port }}"
-
-- name: Change the port
-  lineinfile:
+- name: Replace the entire [ssh] section
+  blockinfile:
     path: /etc/fail2ban/jail.local
-    regexp: '^Port=(\\d+)'
-    line: 'Port={{ fail2ban_ssh_port }}'
-  when: (ssh_port !=  fail2ban_ssh_port) or (ssh_port == 'Not Found')
+    marker: "# {mark} FAIL2BAN SSH CONFIG"
+    block: |
+      [ssh]
+      enabled = true
+      port = ssh
+      logpath = /var/log/custom_auth.log
+      maxretry = "{{ fail2ban_max_try }}"
+
+- name: Ensure fail2ban is enabled and started
+  service:
+    name: fail2ban
+    state: restarted
+    enabled: yes
