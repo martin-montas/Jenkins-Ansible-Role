@@ -1,2 +1,6 @@
 ---
-# tasks file for webserver
+- name: Install Apache2
+  include_tasks: install-apache2.yml
+
+- name: Configure Apache2
+  include_tasks: configure-apache2.yml
