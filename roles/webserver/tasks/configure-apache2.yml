@@ -1,1 +1,20 @@
 ---
+- name: Hides server configs to users
+  blockinfile:
+    path: /etc/apache2/apache2.conf
+    marker: "# {mark}  HIDE SERVER CONFIG"
+    block: |
+
+        ServerTokens Prod
+        ServerSignature Off
+
+- name: Enable the firewall for Apache2
+  command: ufw allow 'Apache Full'
+  register: ufw_result
+
+- name: Enable ufw if not enabled
+  command: ufw enable
+  when: "'inactive' in ufw_result.stdout or 'not enabled' in ufw_result.stdout"
+  ignore_errors: true
+
+
